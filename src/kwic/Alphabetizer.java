@@ -1,22 +1,20 @@
 package kwic;
 
+import component.Component;
+
 import java.text.Collator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-class Alphabetizer implements Runnable {
-    public void run() {
-        while (true) {
-            List<String> lines = StorageBuffer.getShiftedLine();
-            if (lines != null) {
-                sortLines(lines);
-            } else {
-                try {
-                    TimeUnit.SECONDS.sleep(2);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+class Alphabetizer extends Component<List<String>> {
+    public Alphabetizer(Component next) {
+        super(next);
+    }
+
+    @Override
+    public void input(List<String> message) {
+        if (message != null) {
+            sortLines(message);
         }
     }
 

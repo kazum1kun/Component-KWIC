@@ -1,30 +1,22 @@
 package kwic;
 
+import component.Component;
+
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 // CircularShifter reads in a set of lines and shift through each of them
-class CircularShifter implements Runnable {
-    // Repeatedly read time
-    public void run () {
-        ILineInput input = new Input();
-        while (true) {
-            try {
-                List<String> original = input.lineInput();
-                shiftLines(original);
-            } catch (NoSuchElementException ex) {
-                try {
-                    TimeUnit.SECONDS.sleep(3);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
+class CircularShifter extends Component<List<String>> {
+    public CircularShifter(Component next) {
+        super(next);
     }
 
-    void shiftLines(List<String> original) {
+    @Override
+    public void input(List<String> message) {
+            shiftLines(message);
+    }
 
+    private void shiftLines(List<String> original) {
         List<String> shifted = new ArrayList<>();
 
         // Iterate through the original lines
@@ -41,7 +33,7 @@ class CircularShifter implements Runnable {
             }
         }
 
-        // Attempt to add the shifted lines into the pipe
+        // Todo: edit this
         while (!StorageBuffer.putShiftedLine(shifted)) {
             try {
                 TimeUnit.SECONDS.sleep(2);
