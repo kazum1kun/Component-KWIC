@@ -1,7 +1,7 @@
 package component;
 
 public abstract class Component<T> {
-    private Component nextComponent;
+    protected Component nextComponent;
 
     public Component(Component next) {
         nextComponent = next;

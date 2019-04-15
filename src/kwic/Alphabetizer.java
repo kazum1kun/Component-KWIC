@@ -4,7 +4,6 @@ import component.Component;
 
 import java.text.Collator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 class Alphabetizer extends Component<List<String>> {
     public Alphabetizer(Component next) {
@@ -19,8 +18,7 @@ class Alphabetizer extends Component<List<String>> {
     }
 
     private void sortLines(List<String> lines) {
-        Output output = new Output();
         lines.sort(Collator.getInstance());
-        output.lineOutput(lines);
+        nextComponent.input(lines);
     }
 }
