@@ -33,13 +33,6 @@ class CircularShifter extends Component<List<String>> {
             }
         }
 
-        // Todo: edit this
-        while (!StorageBuffer.putShiftedLine(shifted)) {
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        nextComponent.input(shifted);
     }
 }
