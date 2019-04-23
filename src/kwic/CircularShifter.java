@@ -2,8 +2,10 @@ package kwic;
 
 import component.Component;
 
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 // CircularShifter reads in a set of lines and shift through each of them
 class CircularShifter extends Component<List<String>> {
@@ -13,7 +15,7 @@ class CircularShifter extends Component<List<String>> {
 
     @Override
     public void input(List<String> message) {
-            shiftLines(message);
+        shiftLines(message);
     }
 
     private void shiftLines(List<String> original) {
@@ -22,7 +24,7 @@ class CircularShifter extends Component<List<String>> {
         // Iterate through the original lines
         for (String line : original) {
             // Separate the line into an array
-            String[] words =  line.split(" ");
+            String[] words = line.split(" ");
             List<String> currentShiftedLine = new LinkedList<>(Arrays.asList(words));
 
             // Shift the line from 0 to n-1 times

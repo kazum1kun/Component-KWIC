@@ -1,9 +1,8 @@
 package component;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
-public abstract class SuperComponent<T> extends Component {
+public abstract class SuperComponent extends Component {
     protected Component inputComponent;
     protected Component outputComponent;
     protected LinkedList<Component> components;

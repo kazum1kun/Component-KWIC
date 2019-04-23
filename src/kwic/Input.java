@@ -1,12 +1,12 @@
 package kwic;
 
-import java.util.Arrays;
-import java.util.List;
 import component.Component;
+
+import java.util.List;
 
 // Read a comma-delimited string and separate it into a List of strings
 public class Input extends Component<List<String>> implements ILineInput {
-    Input (Component next) {
+    Input(Component next) {
         super(next);
     }
 

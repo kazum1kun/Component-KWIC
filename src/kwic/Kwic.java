@@ -3,13 +3,11 @@ package kwic;
 import component.Component;
 import component.SuperComponent;
 
-import java.util.List;
-
 /**
  * This class represents a SuperComponent KWIC and defines the connectivity between its subcomponents
  * Input -> CircularShifter -> StorageBuffer -> Alphabetizer -> Output
  */
-public class Kwic extends SuperComponent<List<String>> {
+public class Kwic extends SuperComponent {
     public Kwic(Component next) {
         super(next);
         initSubComponents();
