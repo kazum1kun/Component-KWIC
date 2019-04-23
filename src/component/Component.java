@@ -1,6 +1,11 @@
 package component;
 
+/**
+ * Represents a component in a component diagram
+ * @param <T> the type of massage being used between components
+ */
 public abstract class Component<T> {
+    // Next component where the result from this component will be delivered
     protected Component nextComponent;
 
     public Component(Component next) {

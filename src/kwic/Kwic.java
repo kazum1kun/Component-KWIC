@@ -3,6 +3,8 @@ package kwic;
 import component.Component;
 import component.SuperComponent;
 
+import java.util.LinkedList;
+
 /**
  * This class represents a SuperComponent KWIC and defines the connectivity between its subcomponents
  * Input -> CircularShifter -> StorageBuffer -> Alphabetizer -> Output
@@ -10,7 +12,9 @@ import component.SuperComponent;
 public class Kwic extends SuperComponent {
     public Kwic(Component next) {
         super(next);
+        components = new LinkedList<>();
         initSubComponents();
+        defineInputOutput();
     }
 
     @Override
@@ -19,16 +23,16 @@ public class Kwic extends SuperComponent {
         // Since we are adding components backwards, and new components need to point to the one previously added,
         // It is ok to use get(1) since that is constantly changing
         components.add(new Output(null));
-        components.addFirst(new Alphabetizer(components.get(1)));
-        components.addFirst(new StorageBuffer(components.get(1)));
-        components.addFirst(new CircularShifter(components.get(1)));
-        components.addFirst(new Input(components.get(1)));
+        components.addFirst(new Alphabetizer(components.peek()));
+        components.addFirst(new StorageBuffer(components.peek()));
+        components.addFirst(new CircularShifter(components.peek()));
+        components.addFirst(new Input(components.peek()));
     }
 
     @Override
     public void defineInputOutput() {
         // Input port would be simply the Input (at the beginning), and output being Output (in the end)
-        inputComponent = components.peekFirst();
+        inputComponent = components.peek();
         outputComponent = components.peekLast();
     }
 

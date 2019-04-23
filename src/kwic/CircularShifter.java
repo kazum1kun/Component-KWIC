@@ -7,7 +7,13 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-// CircularShifter reads in a set of lines and shift through each of them
+/**
+ * COMPONENT
+ * Input: A List of Strings
+ * Output: A List of Strings, with words shifted in all possible combinations
+ * Example: Input = "ASU Top Innovation"
+ *          Output = "ASU Top Innovation
+ */
 class CircularShifter extends Component<List<String>> {
     public CircularShifter(Component next) {
         super(next);
