@@ -14,11 +14,11 @@ class StorageBuffer extends Component<List<String>> {
     private static final Stack<List<String>> buffer = new Stack<>();
     private static int currentSize = 0;
 
-    public StorageBuffer(Component next) {
+    StorageBuffer(Component next) {
         super(next);
     }
 
-    static boolean putShiftedLine(List<String> input) {
+    private static boolean putShiftedLine(List<String> input) {
         // Do not proceed if the current size exceeds the capacity.
         if (currentSize >= capacity) {
             return false;
@@ -39,7 +39,7 @@ class StorageBuffer extends Component<List<String>> {
         pushContents();
     }
 
-    void pushContents() {
+    private void pushContents() {
         // Return empty string if the buffer is empty
         if (!buffer.empty()) {
             currentSize--;

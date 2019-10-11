@@ -5,7 +5,7 @@ import component.Component;
 import java.util.List;
 
 public class Output extends Component<List<String>> implements ILineOutput {
-    public Output(Component next) {
+    Output(Component<List<String>> next) {
         super(next);
     }
 

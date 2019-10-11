@@ -6,9 +6,9 @@ package component;
  */
 public abstract class Component<T> {
     // Next component where the result from this component will be delivered
-    protected Component nextComponent;
+    protected Component<T> nextComponent;
 
-    public Component(Component next) {
+    public Component(Component<T> next) {
         nextComponent = next;
     }
 

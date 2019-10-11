@@ -11,7 +11,7 @@ import java.util.List;
  * Output: A List of Strings, sorted in ascending order alphabetically
  */
 class Alphabetizer extends Component<List<String>> {
-    Alphabetizer(Component next) {
+    Alphabetizer(Component<List<String>> next) {
         super(next);
     }
 

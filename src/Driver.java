@@ -11,7 +11,5 @@ public class Driver {
         while (true) {
             kwic.input(Arrays.asList(scanner.nextLine().strip().split("\\s*,\\s*")));
         }
-
-
     }
 }

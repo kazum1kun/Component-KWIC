@@ -4,12 +4,13 @@ import component.Component;
 import component.SuperComponent;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * This class represents a SuperComponent KWIC and defines the connectivity between its subcomponents
  * Input -> CircularShifter -> StorageBuffer -> Alphabetizer -> Output
  */
-public class Kwic extends SuperComponent {
+public class Kwic extends SuperComponent<List<String>> {
     public Kwic(Component next) {
         super(next);
         components = new LinkedList<>();
@@ -37,7 +38,7 @@ public class Kwic extends SuperComponent {
     }
 
     @Override
-    public void input(Object message) {
+    public void input(List<String> message) {
         inputComponent.input(message);
     }
 }

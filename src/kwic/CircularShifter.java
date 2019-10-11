@@ -15,7 +15,7 @@ import java.util.List;
  *          Output = "ASU Top Innovation
  */
 class CircularShifter extends Component<List<String>> {
-    public CircularShifter(Component next) {
+    CircularShifter(Component<List<String>> next) {
         super(next);
     }
 
